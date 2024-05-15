@@ -21,7 +21,7 @@ Streamlit Interface: User-friendly interface built with Streamlit for a smooth a
 * Clone this repository: git clone https://github.com/AtharvaNawadkar/gemini-scholars.git
 * Navigate to the project directory:
   ```
-   cd gemini-scholars
+  cd gemini-scholars
   ```
 * Install required dependencies:
   
@@ -36,9 +36,9 @@ Streamlit Interface: User-friendly interface built with Streamlit for a smooth a
 ### 4. Run the App:
 * Open a terminal in the project directory.
 * Run the following command:
-```
-streamlit run chatbot.py
-```
+  ```
+  streamlit run chatbot.py
+  ```
 * This will launch the Gemini Scholars app in your web browser.
 
 ## Usage
