@@ -36,6 +36,7 @@ Streamlit Interface: User-friendly interface built with Streamlit for a smooth a
 ### 4. Run the App:
 * Open a terminal in the project directory.
 * Run the following command:
+  
   ```
   streamlit run chatbot.py
   ```
