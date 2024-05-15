@@ -53,7 +53,15 @@ st.title("‍ Gemini Scholars")
 
 # Researcher selection dropdown
 selected_researcher = st.selectbox("Choose your Researcher:", list(researchers.keys()))
-
+# cols = st.columns(len(researchers))
+# for col, (researcher, (description, image_file)) in zip(cols, researchers.items()):
+#     with col:
+#         image = Image.open(image_file)
+#         st.image(image, use_column_width=True)
+#         if st.button(researcher):
+#             st.session_state["selected_researcher"] = researcher
+#             st.session_state.chat_session = model.start_chat(history=[])
+#             st.chat_message("assistant").markdown(description)
 
 # Update selected researcher in session state
 if selected_researcher != st.session_state["selected_researcher"]:
@@ -64,8 +72,10 @@ if selected_researcher != st.session_state["selected_researcher"]:
 # Display the chat history
 for message in st.session_state.chat_session.history:
     with st.chat_message(translate_role_for_streamlit(message.role)):
-        st.markdown()
-        st.markdown(message.parts[0].text)
+        if message.parts:
+            st.markdown(message.parts[0].text)
+        else:
+            st.markdown("")
 # Input field for user's message
 user_prompt = st.chat_input(f"Ask {selected_researcher}...")
 if user_prompt:
@@ -73,7 +83,7 @@ if user_prompt:
     st.chat_message("user").markdown(user_prompt)
 
     # Update prompt to include researcher name for impersonation
-    prompt = f"{researchers[selected_researcher]}, answer the following question personifying as {selected_researcher}: {user_prompt}"
+    prompt = f"{researchers[selected_researcher]}, answer the following question as {selected_researcher}: {user_prompt}. You can keep the answer consise or detailed, depending on the nature of the {selected_researcher}. Try to talk as much as them."
 
     # Send user's message to Gemini-Pro with updated prompt
     gemini_response = st.session_state.chat_session.send_message(prompt)
