@@ -19,7 +19,10 @@ Streamlit Interface: User-friendly interface built with Streamlit for a smooth a
 
 ### 2. Installation:
 * Clone this repository: git clone https://github.com/AtharvaNawadkar/gemini-scholars.git
-* Navigate to the project directory: cd gemini-scholars
+* Navigate to the project directory:
+  ```
+   cd gemini-scholars
+  ```
 * Install required dependencies:
   
   ```
